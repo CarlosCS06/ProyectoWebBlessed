@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
-export default function ClasificacionSerieA() {
-  const equipos = [
+  const clasificacion = [
     { pos: 1, nombre: "Nápoles", pts: 22, pj: 10, pg: 7, pe: 1, pp: 2, gf: 16, gc: 8, escudo: "/images/equiposfutbol/seriea/napoles.png" },
     { pos: 2, nombre: "Inter Milán", pts: 21, pj: 10, pg: 7, pe: 0, pp: 3, gf: 14, gc: 7, escudo: "/images/equiposfutbol/seriea/inter.png" },
     { pos: 3, nombre: "Milan", pts: 21, pj: 10, pg: 6, pe: 3, pp: 1, gf: 13, gc: 7, escudo: "/images/equiposfutbol/seriea/milan.png" },
@@ -25,48 +26,66 @@ export default function ClasificacionSerieA() {
     { pos: 20, nombre: "Genoa", pts: 3, pj: 9, pg: 0, pe: 3, pp: 6, gf: 4, gc: 13, escudo: "/images/equiposfutbol/seriea/genoa.png" },
   ];
 
-  const colorFila = (pos) => {
-    if (pos <= 5) return "bg-blue-100"; // Champions League
-    if (pos === 6 || pos === 7) return "bg-orange-100"; // Europa League
-    if (pos === 8) return "bg-green-100"; // Conference League
-    if (pos >= 18) return "bg-red-100"; // Descenso
-    return "bg-white";
+  export default function ClasificacionSerieA() {
+
+  const getRowColor = (pos) => {
+    if (pos <= 5) return "bg-purple-300"; // Champions League
+    if (pos <= 7) return "bg-orange-300"; // Europa League
+    if (pos === 8) return "bg-green-300"; // Conference
+    if (pos >= 18) return "bg-red-400 text-white"; // Descenso
+    return "";
   };
 
+
   return (
-    <main className="p-8 bg-gray-50 min-h-screen">
-      <h1 className="text-4xl font-bold text-[#0D9488] text-center mb-8">
-        Clasificación Serie A TIM
+    <main className="bg-base-200 min-h-screen p-8">
+      <h1 className="text-4xl font-bold text-[#6A0DAD] text-center mb-10">
+        🏆 Clasificación - Premier League
       </h1>
-      <div className="overflow-x-auto">
-        <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
-          <thead className="bg-[#0D9488] text-white">
+
+      <div className="overflow-x-auto max-w-5xl mx-auto">
+        <table className="table w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead className="bg-[#6A0DAD] text-white text-center">
             <tr>
-              <th className="p-3 text-left">Pos</th>
-              <th className="p-3 text-left">Equipo</th>
-              <th className="p-3">PT</th>
-              <th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th>
+              <th>Pos</th>
+              <th>Equipo</th>
+              <th>PT</th>
+              <th>PJ</th>
+              <th>PG</th>
+              <th>PE</th>
+              <th>PP</th>
+              <th>GF</th>
+              <th>GC</th>
             </tr>
           </thead>
           <tbody>
-            {equipos.map((e) => (
-              <tr key={e.pos} className={`${colorFila(e.pos)} border-b`}>
-                <td className="p-2 text-center font-semibold">{e.pos}</td>
-                <td className="flex items-center gap-3 p-2">
-                  <Image src={e.escudo} alt={e.nombre} width={28} height={28} />
-                  {e.nombre}
-                </td>
-                <td className="text-center">{e.pts}</td>
-                <td className="text-center">{e.pj}</td>
-                <td className="text-center">{e.pg}</td>
-                <td className="text-center">{e.pe}</td>
-                <td className="text-center">{e.pp}</td>
-                <td className="text-center">{e.gf}</td>
-                <td className="text-center">{e.gc}</td>
+            {clasificacion.map((e) => (
+              <tr key={e.pos} className={`${getRowColor(e.pos)} text-center`}>
+                <td className="font-bold">{e.pos}</td>
+                <td>{e.equipo}</td>
+                <td>{e.pts}</td>
+                <td>{e.pj}</td>
+                <td>{e.pg}</td>
+                <td>{e.pe}</td>
+                <td>{e.pp}</td>
+                <td>{e.gf}</td>
+                <td>{e.gc}</td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      
+      <div className="max-w-5xl mx-auto mt-6 text-sm text-gray-700">
+        <p>🟣 Champions League</p>
+        <p>🟧 Europa League</p>
+        <p>🟩 Conference League</p>
+        <p>🟥 Descenso</p>
+      </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/ligas/premier" className="btn btn-outline text-purple-600 border-purple-600 flex items-center gap-2">
+          <FaArrowLeft /> Volver a la Premier League
+        </Link>
       </div>
     </main>
   );

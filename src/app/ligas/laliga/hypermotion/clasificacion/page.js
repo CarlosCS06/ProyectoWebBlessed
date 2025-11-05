@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const clasificacion = [
   { pos: 1, equipo: "Racing de Santander", pts: 25, pj: 12, pg: 8, pe: 1, pp: 3, gf: 28, gc: 18, escudo: "/images/equiposfutbol/segunda division/racing de santander.png" },
@@ -11,7 +13,7 @@ const clasificacion = [
   { pos: 7, equipo: "Córdoba", pts: 19, pj: 12, pg: 5, pe: 4, pp: 3, gf: 16, gc: 14, escudo: "/images/equiposfutbol/segunda division/cordoba.png" },
   { pos: 8, equipo: "Sporting", pts: 19, pj: 12, pg: 5, pe: 4, pp: 3, gf: 17, gc: 17, escudo: "/images/equiposfutbol/segunda division/sporting de gijon.png" },
   { pos: 9, equipo: "AD Ceuta FC", pts: 18, pj: 12, pg: 5, pe: 3, pp: 4, gf: 14, gc: 11, escudo: "/images/equiposfutbol/segunda division/ceuta.png" },
-  { pos: 10, equipo: "Real Valladolid", pts: 16, pj: 11, pg: 4, pe: 3, pp: 4, gf: 13, gc: 10, escudo: "/images/equiposfutbol/segunda division/real valladolid.png" },
+  { pos: 10, equipo: "Real Valladolid", pts: 16, pj: 11, pg: 4, pe: 3, pp: 4, gf: 13, gc: 10, escudo: "/images/equiposfutbol/segunda division/valladolid.png" },
   { pos: 11, equipo: "Albacete", pts: 16, pj: 12, pg: 4, pe: 4, pp: 4, gf: 18, gc: 14, escudo: "/images/equiposfutbol/segunda division/albacete.png" },
   { pos: 12, equipo: "FC Andorra", pts: 16, pj: 12, pg: 4, pe: 4, pp: 4, gf: 14, gc: 17, escudo: "/images/equiposfutbol/segunda division/andorra.png" },
   { pos: 13, equipo: "Leganés", pts: 15, pj: 12, pg: 3, pe: 6, pp: 3, gf: 13, gc: 9, escudo: "/images/equiposfutbol/segunda division/leganes.png" },
@@ -80,6 +82,15 @@ export default function ClasificacionHypermotion() {
         <p>🟩 Ascenso directo</p>
         <p>🟩 Playoffs (verde claro)</p>
         <p>🟥 Descenso</p>
+      </div>
+      {/* Botón de volver */}
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/ligas/laliga"
+          className="btn btn-outline text-sky-600 border-sky-600 flex items-center gap-2"
+        >
+          <FaArrowLeft /> Volver a LaLiga Hypermotion
+        </Link>
       </div>
     </main>
   );

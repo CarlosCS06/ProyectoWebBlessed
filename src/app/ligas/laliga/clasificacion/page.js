@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const clasificacion = [
   { pos: 1, equipo: "Real Madrid", pts: 30, pj: 11, pg: 10, pe: 0, pp: 1, gf: 26, gc: 10, escudo: "/images/equiposfutbol/primera division/real de madrid.png" },
@@ -80,6 +82,15 @@ export default function ClasificacionPrimera() {
         <p>🟧 Europa League</p>
         <p>🟩 Conference League</p>
         <p>🟥 Descenso</p>
+      </div>
+      {/* Botón de volver */}
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/ligas/laliga"
+          className="btn btn-outline btn-primary flex items-center gap-2"
+        >
+          <FaArrowLeft /> Volver a LaLiga
+        </Link>
       </div>
     </main>
   );

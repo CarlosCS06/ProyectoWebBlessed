@@ -1,4 +1,6 @@
 "use client";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const clasificacion = [
   { pos: 1, equipo: "Arsenal", pts: 25, pj: 10, pg: 8, pe: 1, pp: 1, gf: 18, gc: 3 },
@@ -25,9 +27,9 @@ const clasificacion = [
 
 export default function ClasificacionPremier() {
   const getRowColor = (pos) => {
-    if (pos <= 4) return "bg-purple-300"; // Champions League
-    if (pos === 5) return "bg-orange-300"; // Europa League
-    if (pos === 6) return "bg-green-300"; // Conference
+    if (pos <= 5) return "bg-purple-300"; // Champions League
+    if (pos <= 7) return "bg-orange-300"; // Europa League
+    if (pos === 8) return "bg-green-300"; // Conference
     if (pos >= 18) return "bg-red-400 text-white"; // Descenso
     return "";
   };
@@ -76,6 +78,11 @@ export default function ClasificacionPremier() {
         <p>🟧 Europa League</p>
         <p>🟩 Conference League</p>
         <p>🟥 Descenso</p>
+      </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/ligas/premier" className="btn btn-outline text-purple-600 border-purple-600 flex items-center gap-2">
+          <FaArrowLeft /> Volver a la Premier League
+        </Link>
       </div>
     </main>
   );

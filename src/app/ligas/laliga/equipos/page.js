@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const equiposPrimera = [
   { nombre: "Deportivo Alavés", escudo: "/images/equiposfutbol/primera division/alaves.png" },
@@ -43,6 +45,15 @@ export default function EquiposPrimera() {
             <h2 className="font-semibold">{equipo.nombre}</h2>
           </div>
         ))}
+      </div>
+      {/* Botón de volver */}
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/ligas/laliga"
+          className="btn btn-outline btn-primary flex items-center gap-2"
+        >
+          <FaArrowLeft /> Volver a LaLiga
+        </Link>
       </div>
     </main>
   );

@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 export default function ClasificacionBundesliga() {
   const equipos = [
@@ -66,6 +68,11 @@ export default function ClasificacionBundesliga() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/ligas/bundesliga" className="btn btn-outline text-red-600 border-red-600 flex items-center gap-2">
+          <FaArrowLeft /> Volver a la Bundesliga
+        </Link>
       </div>
     </main>
   );

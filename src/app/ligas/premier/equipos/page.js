@@ -1,4 +1,6 @@
 "use client";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const equiposPremier = [
   "Arsenal",
@@ -39,6 +41,11 @@ export default function EquiposPremier() {
             <h2 className="font-semibold">{equipo}</h2>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/ligas/premier" className="btn btn-outline text-purple-600 border-purple-600 flex items-center gap-2">
+          <FaArrowLeft /> Volver a la Premier League
+        </Link>
       </div>
     </main>
   );

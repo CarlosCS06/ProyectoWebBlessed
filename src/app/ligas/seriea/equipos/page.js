@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 export default function EquiposSerieA() {
   const equipos = [
@@ -24,6 +26,11 @@ export default function EquiposSerieA() {
             <h2 className="font-semibold mt-3">{e}</h2>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        <Link href="/ligas/seriea" className="btn btn-outline text-green-600 border-green-600 flex items-center gap-2">
+          <FaArrowLeft /> Volver a la Serie A
+        </Link>
       </div>
     </main>
   );

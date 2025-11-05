@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { FaFutbol, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const equiposSegunda = [
   { nombre: "Albacete", escudo: "/images/equiposfutbol/segunda division/albacete.png" },
@@ -45,6 +47,15 @@ export default function EquiposSegunda() {
             <h2 className="font-semibold">{equipo.nombre}</h2>
           </div>
         ))}
+      </div>
+      {/* Botón de volver */}
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/ligas/laliga"
+          className="btn btn-outline text-sky-600 border-sky-600 flex items-center gap-2"
+        >
+          <FaArrowLeft /> Volver a LaLiga Hypermotion
+        </Link>
       </div>
     </main>
   );
