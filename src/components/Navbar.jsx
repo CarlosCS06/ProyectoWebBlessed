@@ -1,60 +1,94 @@
 "use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { FaBars, FaTimes, FaFutbol, FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [openLigas, setOpenLigas] = useState(false);
+
   return (
-    <div className="navbar bg-base-100 shadow-md px-6">
-      <div className="flex-1">
-        <Link href="/" className="text-2xl font-bold text-primary">
-          FútbolTotal ⚽
+    <nav className="bg-base-100 shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+
+        {/* LOGO */}
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold">
+          <FaFutbol className="text-primary" />
+          <span>FutbolTotal</span>
         </Link>
-      </div>
 
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 hidden md:flex">
-          <li><Link href="/">Inicio</Link></li>
-          <li><Link href="/noticias">Noticias</Link></li>
+        {/* MENU EN ESCRITORIO */}
+        <div className="hidden md:flex items-center gap-6 text-lg">
 
-          <li>
-            <details>
-              <summary>Ligas</summary>
-              <ul className="p-2 bg-base-100 rounded-lg shadow-md z-[9999] relative">
-                <li><Link href="/ligas/laliga">LaLiga EA Sports</Link></li>
-                <li><Link href="/ligas/premier">Premier League</Link></li>
-                <li><Link href="/ligas/seriea">Serie A TIM</Link></li>
-                <li><Link href="/ligas/bundesliga">Bundesliga</Link></li>
-                <li><Link href="/ligas/ligue1">Ligue 1 Uber Eats</Link></li>
-              </ul>
-            </details>
-          </li>
-        </ul>
+          <Link href="/" className="hover:text-primary transition">Inicio</Link>
 
-        {/* Mobile menu */}
-        <div className="dropdown md:hidden">
-          <label tabIndex={0} className="btn btn-ghost">
-            ☰
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content right-2 mt-3 z-[999] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li><Link href="/">Inicio</Link></li>
-            <li><Link href="/noticias">Noticias</Link></li>
-            <li>
-              <details>
-                <summary>Ligas</summary>
-                <ul className="p-2 bg-base-100 rounded-lg shadow-md">
-                  <li><Link href="/ligas/laliga">LaLiga EA Sports</Link></li>
-                  <li><Link href="/ligas/premier">Premier League</Link></li>
-                  <li><Link href="/ligas/seriea">Serie A TIM</Link></li>
-                  <li><Link href="/ligas/bundesliga">Bundesliga</Link></li>
-                  <li><Link href="/ligas/ligue1">Ligue 1 Uber Eats</Link></li>
-                </ul>
-              </details>
-            </li>
-          </ul>
+          <Link href="/plantilla" className="hover:text-primary transition">
+            Plantilla
+          </Link>
+          <Link href="/jugadores" className="hover:text-primary transition">
+            Jugadores
+          </Link>
+
+
+          {/* LIGAS dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 hover:text-primary transition">
+              Ligas <FaChevronDown className="text-xs" />
+            </button>
+
+            <div className="absolute hidden group-hover:block bg-base-200 shadow-lg rounded-md mt-2 p-3 min-w-[160px]">
+              <Link href="/ligas/acp" className="block hover:text-primary mb-2">
+                ACP
+              </Link>
+              <Link href="/ligas/vpcl" className="block hover:text-primary">
+                VPCL
+              </Link>
+            </div>
+          </div>
         </div>
+
+        {/* BOTÓN HAMBURGUESA */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
-    </div>
+
+      {/* MENU EN MÓVIL */}
+      {open && (
+        <div className="md:hidden bg-base-100 shadow-md p-4 text-lg flex flex-col gap-4">
+
+          <Link href="/" onClick={() => setOpen(false)}>
+            Inicio
+          </Link>
+
+          <Link href="/plantilla" onClick={() => setOpen(false)}>
+            Plantilla
+          </Link>
+
+          {/* Dropdown móvil */}
+          <div>
+            <button
+              className="flex items-center gap-2"
+              onClick={() => setOpenLigas(!openLigas)}
+            >
+              Ligas <FaChevronDown
+                className={`text-xs transition ${openLigas && "rotate-180"}`}
+              />
+            </button>
+
+            {openLigas && (
+              <div className="ml-4 mt-2 flex flex-col gap-2">
+                <Link href="/ligas/acp" onClick={() => setOpen(false)}>ACP</Link>
+                <Link href="/ligas/vpcl" onClick={() => setOpen(false)}>VPCL</Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
