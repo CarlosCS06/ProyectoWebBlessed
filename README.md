@@ -1,7 +1,6 @@
 # DaisyUI
 
 Los siguientes componentes se han obtendido de la biblioteca DaisyUI
-
 - Drawer
 - Diff
 - Navbar
