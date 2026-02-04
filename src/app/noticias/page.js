@@ -93,48 +93,6 @@ export default function NoticiasPage() {
         },
       ],
     },
-    {
-      titulo: "Ligas Europeas",
-      color: "text-blue-700",
-      noticias: [
-        {
-          titulo: "El Real Madrid se lleva el Clásico con un golazo de Bellingham",
-          resumen:
-            "El inglés volvió a brillar en un Santiago Bernabéu lleno, consolidando el liderato blanco.",
-          imagen: "/images/noticias/bellingham.png",
-        },
-        {
-          titulo: "Rayo Vallecano mantiene su fe europea",
-          resumen:
-            "Iñigo Pérez, técnico del Rayo, confirma que ha rechazado ofertas de la Premier para centrarse en el proyecto del club madrileño.",
-          imagen: "/images/noticias/rayo.png",
-        },
-        {
-          titulo: "El Girona sigue sorprendiendo y se mantiene en puestos de Champions",
-          resumen:
-            "El equipo catalán continúa su cuento de hadas en LaLiga con un fútbol atractivo y eficaz.",
-          imagen: "/images/noticias/girona.png",
-        },
-        {
-          titulo: "Bayern Múnich recupera el liderato en la Bundesliga",
-          resumen:
-            "Harry Kane firmó un doblete en la victoria frente al Leverkusen que devuelve a los bávaros a la cima.",
-          imagen: "/images/noticias/bayern.png",
-        },
-        {
-          titulo: "Liverpool golea al Newcastle y se acerca a la cima de la Premier",
-          resumen:
-            "Salah marcó dos goles en una exhibición ofensiva del equipo de Klopp en Anfield.",
-          imagen: "/images/noticias/liverpool.png",
-        },
-        {
-          titulo: "El Inter de Milán amplía su ventaja en la Serie A",
-          resumen:
-                "El conjunto neroazzurro venció 2-0 al Napoli y se consolida como líder del campeonato italiano.",
-          imagen: "/images/noticias/inter.png",
-        },
-      ],
-    },
   ];
 
   // Noticias destacadas para el carrusel

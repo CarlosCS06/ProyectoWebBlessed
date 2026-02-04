@@ -91,49 +91,4 @@ export const noticias = {
       href: "/noticias/calendario-futbol-europeo-2025",
     },
   ],
-
-  ligas: [
-    {
-      titulo: "Cristiano Ronaldo: 'Es más fácil marcar en España que en la liga saudí'",
-      fecha: "6 de noviembre de 2025",
-      resumen: "El delantero portugués genera debate con sus declaraciones comparando nivel de competiciones.",
-      imagen: "/images/news/cristiano-ronaldo.jpg",
-      href: "/noticias/cristiano-ronaldo-liga-espana-saudi",
-    },
-    {
-      titulo: "Premier League critica el calendario de Boxing Day por la expansión europea",
-      fecha: "3 de noviembre de 2025",
-      resumen: "La liga inglesa argumenta que la acumulación de torneos continentales impacta en su tradicional jornada navideña.",
-      imagen: "/images/news/premier-boxingday.jpg",
-      href: "/noticias/premier-boxing-day-calendario",
-    },
-    {
-      titulo: "Formato 2025-26 de la UEFA Champions League confirmado: 36 equipos en fase de liga",
-      fecha: "5 de noviembre de 2025",
-      resumen: "La edición 71 de la Champions será la primera en contar con una fase de liga de todos los participantes.",
-      imagen: "/images/news/champions-2025-26.jpg",
-      href: "/noticias/champions-league-2025-26-formato",
-    },
-    {
-      titulo: "LaLiga y Serie A preparan pruebas para jugar partidos en territorios exteriores",
-      fecha: "6 de octubre de 2025",
-      resumen: "Los dos campeonatos exploran incrementar su visibilidad global a través de desplazamientos competitivos.",
-      imagen: "/images/news/laliga-seriea-global.jpg",
-      href: "/noticias/laliga-seriea-expansion-global",
-    },
-    {
-      titulo: "El modelo de propiedad de los clubes en España bajo debate: Real Madrid abre camino",
-      fecha: "6 de noviembre de 2025",
-      resumen: "La reforma del Real Madrid podría marcar tendencia en la gestión deportiva de los principales clubes españoles.",
-      imagen: "/images/news/modelo-propiedad-espana.jpg",
-      href: "/noticias/modelo-propiedad-clubes-espana",
-    },
-    {
-      titulo: "La UEFA aprueba excepción para que la Bundesliga celebre partido fuera de Alemania",
-      fecha: "6 de octubre de 2025",
-      resumen: "El Bayern Munich jugará su encuentro en Perth como parte de una estrategia global de la liga alemana.",
-      imagen: "/images/news/bundesliga-perth.jpg",
-      href: "/noticias/bundesliga-partido-fuera-alemania-2025",
-    },
-  ],
 };
