@@ -33,6 +33,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+@tailwind utilities;
+
+body {
+  @apply m-0 p-0 bg-[#0B0B0B];
+}
+
 
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(10px); }
@@ -43,4 +49,10 @@ body {
   animation: fade-in 1s ease-in-out;
 }
 
+/* Elimina márgenes y padding globales */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #0B0B0B; /* este ya lo tienes pero lo dejo */
+}
 

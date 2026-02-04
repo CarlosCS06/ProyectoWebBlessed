@@ -1,94 +1,87 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { FaBars, FaTimes, FaFutbol, FaChevronDown } from "react-icons/fa";
+import Link from "next/link";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
   const [openLigas, setOpenLigas] = useState(false);
 
   return (
-    <nav className="bg-base-100 shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+    <nav className="w-[95%] mx-auto mt-4 px-6 py-4 bg-[#1c542d] border-2 border-[#0f4d1a] rounded-2xl shadow-lg">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold">
-          <FaFutbol className="text-primary" />
-          <span>FutbolTotal</span>
+        <Link href="/" className="flex items-center gap-3">
+          <img
+            src="/images/blessed_logo.jpeg"
+            alt="Blessed FC"
+            className="h-12 w-auto drop-shadow-lg"
+          />
+          <span className="text-white text-2xl font-bold tracking-wide">
+            Blessed Club
+          </span>
         </Link>
 
-        {/* MENU EN ESCRITORIO */}
-        <div className="hidden md:flex items-center gap-6 text-lg">
+        {/* LINKS */}
+        <div className="flex items-center gap-8 text-white font-semibold">
 
-          <Link href="/" className="hover:text-primary transition">Inicio</Link>
+          <a
+            href="/"
+            className="hover:text-[#15ff7f] transition duration-200"
+          >
+            Sobre nosotros
+          </a>
 
-          <Link href="/plantilla" className="hover:text-primary transition">
-            Plantilla
-          </Link>
-          <Link href="/jugadores" className="hover:text-primary transition">
+          <a
+            href="/contacto"
+            className="hover:text-[#15ff7f] transition duration-200"
+          >
+            Contacto
+          </a>
+
+          <Link
+            href="/jugadores"
+            className="hover:text-[#15ff7f] transition duration-200"
+          >
             Jugadores
           </Link>
 
-
-          {/* LIGAS dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 hover:text-primary transition">
-              Ligas <FaChevronDown className="text-xs" />
-            </button>
-
-            <div className="absolute hidden group-hover:block bg-base-200 shadow-lg rounded-md mt-2 p-3 min-w-[160px]">
-              <Link href="/ligas/acp" className="block hover:text-primary mb-2">
-                ACP
-              </Link>
-              <Link href="/ligas/vpcl" className="block hover:text-primary">
-                VPCL
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* BOTÓN HAMBURGUESA */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
-
-      {/* MENU EN MÓVIL */}
-      {open && (
-        <div className="md:hidden bg-base-100 shadow-md p-4 text-lg flex flex-col gap-4">
-
-          <Link href="/" onClick={() => setOpen(false)}>
-            Inicio
-          </Link>
-
-          <Link href="/plantilla" onClick={() => setOpen(false)}>
-            Plantilla
-          </Link>
-
-          {/* Dropdown móvil */}
-          <div>
+          {/* MENÚ LIGAS */}
+          <div className="relative">
             <button
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 hover:text-[#15ff7f] transition"
               onClick={() => setOpenLigas(!openLigas)}
             >
-              Ligas <FaChevronDown
-                className={`text-xs transition ${openLigas && "rotate-180"}`}
+              Ligas
+              <FaChevronDown
+                className={`text-xs transition-transform duration-200 ${openLigas ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
             {openLigas && (
-              <div className="ml-4 mt-2 flex flex-col gap-2">
-                <Link href="/ligas/acp" onClick={() => setOpen(false)}>ACP</Link>
-                <Link href="/ligas/vpcl" onClick={() => setOpen(false)}>VPCL</Link>
+              <div className="absolute right-0 mt-2 bg-[#111] text-white shadow-lg rounded-xl p-3 flex flex-col gap-2 border border-[#0f4d1a]">
+                <Link
+                  href="/ligas/acp"
+                  onClick={() => setOpenLigas(false)}
+                  className="hover:text-[#15ff7f]"
+                >
+                  ACP
+                </Link>
+
+                <Link
+                  href="/ligas/vpcl"
+                  onClick={() => setOpenLigas(false)}
+                  className="hover:text-[#15ff7f]"
+                >
+                  VPCL
+                </Link>
               </div>
             )}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

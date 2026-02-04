@@ -8,6 +8,7 @@ export default function PlantillaPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [playerName, setPlayerName] = useState("");
   const [speciality, setSpeciality] = useState("");
+  const [playerNumber, setPlayerNumber] = useState("");
 
   const fieldRef = useRef(null);
 
@@ -30,6 +31,7 @@ export default function PlantillaPage() {
   const openCreateModal = () => {
     setPlayerName("");
     setSpeciality("");
+    setPlayerNumber("");
     setModalOpen(true);
   };
 
@@ -38,6 +40,7 @@ export default function PlantillaPage() {
       name: playerName,
       speciality,
       role,
+      number: playerNumber,
       img: roleImage[role],
       color: roleColor[role],
       x: 600,
@@ -155,23 +158,42 @@ export default function PlantillaPage() {
             }}
             onMouseDown={(e) => startDrag(e, i)}
           >
-            <img
-              src={p.img}
-              className="w-16 h-16 object-contain select-none"
-              style={{
-                background: "transparent",
-                border: "none",
-                borderRadius: 0,
-                boxShadow: "none",
-              }}
-              draggable={false}
-            />
+            <div className="relative w-24 h-24">
+              <img
+                src={p.img}
+                className="w-24 h-24 object-contain select-none"
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  borderRadius: 0,
+                  boxShadow: "none",
+                }}
+                draggable={false}
+              />
+              {p.number && (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    color: "#ffffff",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+                    background: "transparent",
+                  }}
+                >
+                  {p.number}
+                </span>
+              )}
+            </div>
 
             <p
               style={{
                 color: p.color,
                 fontWeight: "bold",
-                fontSize: "0.9rem",
+                fontSize: "1.1rem",
 
                 // FIX TEXTO
                 background: "transparent",
@@ -188,7 +210,7 @@ export default function PlantillaPage() {
             <p
               style={{
                 color: p.color,
-                fontSize: "0.75rem",
+                fontSize: "0.9rem",
 
                 // FIX TEXTO
                 background: "transparent",
@@ -209,7 +231,7 @@ export default function PlantillaPage() {
       {modalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-xl shadow-xl w-80">
-            <h3 className="text-xl font-bold mb-4">Nuevo jugador</h3>
+            <h3 className="text-x1 font-bold mb-4">Nuevo jugador</h3>
 
             <input
               type="text"
@@ -222,9 +244,19 @@ export default function PlantillaPage() {
             <input
               type="text"
               placeholder="Especialización"
-              className="input input-bordered w-full mb-4"
+              className="input input-bordered w-full mb-3"
               value={speciality}
               onChange={(e) => setSpeciality(e.target.value)}
+            />
+
+            <input
+              type="number"
+              placeholder="Número de camiseta"
+              className="input input-bordered w-full mb-4"
+              value={playerNumber}
+              onChange={(e) => setPlayerNumber(e.target.value)}
+              min="1"
+              max="99"
             />
 
             <div className="flex justify-end gap-3">
